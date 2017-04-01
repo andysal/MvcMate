@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>MvcMate</id>
+        <version>1.1.3</version>
+        <title>MvcMate</title>
+        <authors>Andrea Saltarello</authors>
+        <owners>Andrea Saltarello,Managed Designs</owners>
+        <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
+        <projectUrl>http://mvcmate.codeplex.com/</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>This project was designed to add functionality to Microsoft's ASP.NET MVC Framework v4+</description>
+        <summary>A companion library for ASP.NET MVC projects</summary>
+        <copyright>Managed Designs, 2016</copyright>
+        <tags>MVC, routing, atom, rss, jsonp</tags>
+        <dependencies>
+            <dependency id="Newtonsoft.Json" version="5.0.8" />
+            <dependency id="Microsoft.AspNet.Mvc" version="4.0.30506.0" />
+            <dependency id="Microsoft.AspNet.Razor" version="2.0.30506.0" />
+            <dependency id="Microsoft.AspNet.WebPages" version="2.0.30506.0" />
+            <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
+        </dependencies>
+        <references>
+            <reference file="MvcMate.dll" />
+        </references>
+    </metadata>
+    <files>
+        <file src="..\..\..\..\..\..\..\..\Dev\mvcmate\MvcMate\bin\Release\MvcMate.dll" target="lib\net40\MvcMate.dll" />
+        <file src="..\..\..\..\..\..\..\..\Dev\mvcmate\MvcMate\bin\Release\MvcMate.pdb" target="lib\net40\MvcMate.pdb" />
+        <file src="..\..\..\..\..\..\..\..\Dev\mvcmate\MvcMate\bin\Release\MvcMate.xml" target="lib\net40\MvcMate.xml" />
+    </files>
+</package>
