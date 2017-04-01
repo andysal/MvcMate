@@ -1,0 +1,96 @@
+﻿@model MvcMate.Samples.Models.Helpers.UploadViewModel
+
+@{   
+    ViewBag.Title = "Upload";
+}
+<h1>No Validation</h1>
+<h2>Upload</h2>
+@using (Html.BeginForm("Upload", "My", FormMethod.Post, new {enctype = "multipart/form-data"})) {
+    <div class="editor-label">
+        @Html.Label("myfile")
+    </div>
+    <div class="editor-field">
+        @Html.Upload("myfile")
+    </div>
+    <p>
+        <input type="submit" value="Upload" />
+    </p>
+}
+
+<h2>Upload - HTML attributes - anonymous type</h2>
+@using (Html.BeginForm("Upload", "My", FormMethod.Post, new {enctype = "multipart/form-data"})) {
+    <div class="editor-label">
+        @Html.Label("myfile")
+    </div>
+    <div class="editor-field">
+        @Html.Upload("myfile", new { @class = "fake", style = "text-align: left;" })
+    </div>
+    <p>
+        <input type="submit" value="Upload" />
+    </p>
+}
+
+<h2>Upload - HTML attributes - Dictionary</h2>
+@using (Html.BeginForm("Upload", "My", FormMethod.Post, new {enctype = "multipart/form-data"})) {
+    <div class="editor-label">
+        @Html.Label("myfile")
+    </div>
+    <div class="editor-field">
+        @Html.Upload("myfile", new Dictionary<string, object>() { 
+                                                                    { "class", "fake"},
+                                                                    { "style", "text-align: left;" }
+                                                                })
+    </div>
+    <p>
+        <input type="submit" value="Upload" />
+    </p>
+}
+
+<h1>Validation</h1>
+<h2>No HTML attributes</h2>
+@using (Html.BeginForm("Upload", "My", FormMethod.Post, new {enctype = "multipart/form-data"})) {
+    @Html.ValidationSummary(true)
+    <div class="editor-label">
+        @Html.LabelFor(model => model.TheRequiredFile)
+    </div>
+    <div class="editor-field">
+        @Html.Upload("TheRequiredFile")
+        @Html.ValidationMessageFor(model => model.TheRequiredFile)
+    </div>
+    <p>
+        <input type="submit" value="Upload" />
+    </p>
+}
+
+<h2>HTML attributes - anonymous type</h2>
+@using (Html.BeginForm("Upload", "My", FormMethod.Post, new {enctype = "multipart/form-data"})) {
+    @Html.ValidationSummary(true)
+    <div class="editor-label">
+        @Html.LabelFor(model => model.TheRequiredFile)
+    </div>
+    <div class="editor-field">
+        @Html.Upload("TheRequiredFile", new { @class = "fake", style = "text-align: left;" })
+        @Html.ValidationMessageFor(model => model.TheRequiredFile)
+    </div>
+    <p>
+        <input type="submit" value="Upload" />
+    </p>
+}
+
+<h2>HTML attributes - Dictionary</h2>
+@using (Html.BeginForm("Upload", "My", FormMethod.Post, new {enctype = "multipart/form-data"})) {
+    @Html.ValidationSummary(true)
+    <div class="editor-label">
+        @Html.LabelFor(model => model.TheRequiredFile)
+    </div>
+    <div class="editor-field">
+        @Html.Upload("TheRequiredFile", new Dictionary<string, object>() { 
+                                                                    { "class", "fake"},
+                                                                    { "style", "text-align: left;" }
+                                                                })
+        @Html.ValidationMessageFor(model => model.TheRequiredFile)
+    </div>
+    <p>
+        <input type="submit" value="Upload" />
+    </p>
+}

@@ -1,0 +1,25 @@
+﻿@model MvcMate.Samples.Models.Helpers.UploadForInNestedViewModel
+
+@{
+    ViewBag.Title = "UploadFor In Nested ViewModel Property";
+}
+
+<h1>Validation</h1>
+
+<h2>Binding to Nested ViewModel property</h2>
+@using (Html.BeginForm("Upload", "My", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Child.TheRequiredFile)
+    </div>
+    <div class="editor-field">
+        @Html.UploadFor(model => model.Child.TheRequiredFile)
+        @Html.ValidationMessageFor(model => model.Child.TheRequiredFile)
+    </div>
+    <p>
+        <input type="submit" value="Upload" />
+    </p>
+}
+
+@Html.Partial("_NestedPartial", Model.Child)

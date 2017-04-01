@@ -1,0 +1,21 @@
+﻿@model MvcMate.Samples.Models.Helpers.UploadForInNestedViewModel.ChildViewModel
+
+@{
+    Html.ViewData.TemplateInfo.HtmlFieldPrefix = "Child";
+}
+
+<h2>Partial View with HTML Prefix</h2>
+@using (Html.BeginForm("Upload", "My", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="editor-label">
+        @Html.LabelFor(model => model.TheRequiredFile)
+    </div>
+    <div class="editor-field">
+        @Html.UploadFor(model => model.TheRequiredFile)
+        @Html.ValidationMessageFor(model => model.TheRequiredFile)
+    </div>
+    <p>
+        <input type="submit" value="Upload" />
+    </p>
+}
